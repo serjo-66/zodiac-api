@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zodiac API — это удобный инструмент для получения информации о знаках зодиака. Узнайте текущий знак зодиака, найдите знак по дате или получите диапазон дат для конкретного знака.">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>Zodiac API</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="/logo.png" alt="Zodiac API Logo">
+    </div>
+    <h1>Zodiac API</h1>
+    <p>Этот API предоставляет информацию о знаках зодиака. Вы можете использовать следующие эндпоинты:</p>
+</header>
+
+<main>
+    <div class="endpoint">
+        <h2>Текущий знак зодиака</h2>
+        <p><strong>GET</strong> <code>/api/current-sign</code></p>
+        <p>Возвращает знак зодиака, соответствующий текущей дате.</p>
+        <pre>{"sign": "Водолей"}</pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>Знак зодиака по дате</h2>
+        <p><strong>GET</strong> <code>/api/sign-by-date?date=MM-DD</code></p>
+        <p>Возвращает знак зодиака, соответствующий переданной дате.</p>
+        <pre>{"sign": "Скорпион"}</pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>Даты по знаку зодиака</h2>
+        <p><strong>GET</strong> <code>/api/dates-by-sign?sign=Знак</code></p>
+        <p>Возвращает диапазон дат, соответствующий переданному знаку зодиака.</p>
+        <pre>{
+  "sign": "Овен",
+  "dates": [
+    "03-21",
+    "04-19"
+  ]
+}</pre>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; <span id="year"></span> | Разработано: Мною</p>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
